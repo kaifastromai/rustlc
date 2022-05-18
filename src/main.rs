@@ -16,7 +16,7 @@ fn main() {
     //print the project root
     println!("Counting lines of {}", proj_root.display());
     fn count_lines(path: &Path, line_count: &mut usize, char_count: &mut usize) {
-        if path.is_dir() {
+        if path.is_dir() && !path.ends_with("target") {
             for entry in path.read_dir().unwrap() {
                 let entry = entry.unwrap();
                 let path = entry.path();
